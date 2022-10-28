@@ -1,26 +1,38 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <four-tag></four-tag>
+    <eight-tag></eight-tag>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Four from './components/Four.vue'
+import Eight from './components/Eight.vue'
 export default {
   name: 'App',
+  data() {
+    return {
+      
+    }
+  },
   components: {
-    HelloWorld
+    'four-tag':Four,
+    'eight-tag':Eight
+  },
+  mounted() {
+    // alert(this.$store.getters.getName);
+    // this.xyz=this.$store.getters.getName
+    // console.log(this.xyz)
+    this.$store.dispatch('actCode').then((data)=>{
+      console.log(data)
+    }).catch((data)=>{
+      console.log(data)
+    })
+  
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
